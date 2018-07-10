@@ -4,7 +4,7 @@ import re
 import pprint
 import random
 import sys
-import getopt 
+import getopt
 import glob
 import markov
 
@@ -30,7 +30,7 @@ def checkargs():
 		dictFile = arg['-d']
 
 	return( maxWordInSentence, genNSentences, dictFile)
- 
+
 
 def main(maxWordInSentence, dictFile, genNSentences=50):
 
@@ -40,7 +40,7 @@ def main(maxWordInSentence, dictFile, genNSentences=50):
 	twitterText = []
 
 	for _ in range( genNSentences ):
-		text = markovObj.genText() 
+		text = markovObj.genText()
 		print( text )
 		if len(text) <= 140 and text.endswith('.'):
 			twitterText.append(text)

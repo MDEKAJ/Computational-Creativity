@@ -53,7 +53,7 @@ def readWestWingFile(filename,  fileEncoding="utf-8"):
 					processSection( re.sub(r"\[.+\]","",fullline ) )
 					fullline = ""
 				continue
-			elif "BARTLET" in line: 
+			elif "BARTLET" in line:
 				bartletLineActive = True
 				fullline = ""
 			elif bartletLineActive:
@@ -70,7 +70,7 @@ def readGenericFile(filename, fileEncoding="utf-8"):
 
 def processSection(line ):
 	global lineCount, wordCount, table, keyLen
-	
+
 	sent_text = nltk.sent_tokenize(line) # this gives us a list of sentences
 		# now loop over each sentence and tokenize it separately
 	# pprint.pprint(sent_text)
@@ -80,11 +80,11 @@ def processSection(line ):
 		cleanStr = sentence
 		# cleanStr = re.sub('[^ A-Za-z0-9]+', ' ', sentence)
 
-		# outputFile.write(cleanStr)	
+		# outputFile.write(cleanStr)
 		tokens = cleanStr.split()
 
 		keyList = [ ];
-		
+
 		#print()
 		table.setdefault( '#BEGIN#', []).append(tokens[0:keyLen]);
 
@@ -93,7 +93,7 @@ def processSection(line ):
 				keyList.append(item)
 				#if len(keyList) < keyLen:	#If still too short, go to next iteration
 				continue
-			
+
 			table.setdefault( tuple(keyList), []).append(item)
 			keyList.pop(0)
 			keyList.append(item)
@@ -112,7 +112,7 @@ def generate():
 	# print("start key:" + str(key) )
 
 	for _ in range( maxWordInSentence ):
-		newKey = table.setdefault( tuple(key), "") 
+		newKey = table.setdefault( tuple(key), "")
 		if(newKey == ""):
 			break
 		newVal = random.choice( newKey )
@@ -143,22 +143,22 @@ def main():
 
 	fileList = [];
 	fileList = glob.glob("eddie*.txt")
-	fileList = fileList + glob.glob("Obama*.txt") 
+	fileList = fileList + glob.glob("Obama*.txt")
 
 	print(fileList)
 	for file in fileList:
 		readGenericFile(file, "utf-8")
-	
+
 
 	print( "lines: " + str(lineCount) )
 	print( "total words: " + str(wordCount) )
-	
-	markovDictFile=open('markovdictfile.txt', 'w')
+
+	markovDictFile=open('markovdict.txt', 'w')
 	pprint.pprint(table,markovDictFile)
 
 	for _ in range( genNSentences ):
 		generate()
 
-	
+
 if __name__ == "__main__":
     main()

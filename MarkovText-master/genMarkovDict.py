@@ -1,4 +1,3 @@
-from nltk.tokenize import RegexpTokenizer
 #from nltk.tokenize import word_tokenize
 import nltk
 import re
@@ -14,7 +13,7 @@ def checkargs():
 	keyLen = 1
 	fileList = []
 
-	if len(sys.argv) < 3:
+	if len(sys.argv) < 2:
 		print( "Usage: " + sys.argv[0] + " -k <Key lenth> -i <input files> -d <dictionary file> ")
 		exit(0)
 	else:
@@ -23,8 +22,8 @@ def checkargs():
 		for item in options[0]:
 			if(item):
 				arg[ item[0] ] = item[1]
-		# pprint.pprint(arg)
 
+		# pprint.pprint(arg)
 		keyLen = int(arg[ '-k'])
 		dictFile = arg['-d']
 

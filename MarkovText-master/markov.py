@@ -38,7 +38,7 @@ class Markov(object):
 
 			tokens = sentence.split()
 			keyList = [ ];
-			
+
 			#Add a special key with just beginning words
 			self.table.setdefault( '#BEGIN#', []).append(tokens[0:self.order ]);
 
@@ -47,7 +47,7 @@ class Markov(object):
 				if len(keyList) < self.order :  #not enough items
 					keyList.append(item)
 					continue
-				
+
 				#If we already have the item, then add it, otherwise add to empty list
 				self.table.setdefault( tuple(keyList), []).append(item)
 
@@ -59,11 +59,11 @@ class Markov(object):
 	def setMaxWordInSentence(self, maxWordInSentence):
 		self.maxWordInSentence = maxWordInSentence
 
-	def genText(self):	
+	def genText(self):
 		key = list(random.choice(  self.table['#BEGIN#'] ))
 		genStr = " ".join( key )
 		for _ in range( self.maxWordInSentence ):
-			newKey = self.table.setdefault( tuple(key), "") 
+			newKey = self.table.setdefault( tuple(key), "")
 			if(newKey == ""):
 				break
 			newVal = random.choice( newKey )
@@ -79,7 +79,7 @@ class Markov(object):
 
 	def getWordCount(self):
 		return self.inputWordCount
-  
+
 	def outputDict(self, filename):
 		markovDictFile=open(filename, 'w')
 		pprint.pprint(self.table,markovDictFile)
