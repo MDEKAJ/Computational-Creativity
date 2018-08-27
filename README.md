@@ -7,9 +7,3 @@ Project Evaluation
 I will evaluate my practical work using the SPECS evaluation process. SPECS (Standardised Procedure for Evaluating Creative Systems) is an evaluation process which consists of three steps; Investigation, Standards of Evaluation and Testing. 
 I have decided to use SPECS as it is flexible enough to evaluate any creative system. It is also a standardised procedure of evaluation, and so there are likely to be many other story-telling systems evaluated with this method –which would be useful when comparing. Another reason as to why I have chosen SPECS is that it covers evaluation systems in a systematic way. As shown in the lecture notes [4], most systems are not evaluated in a systematic or standardized way –SPECS ensures that the evaluation process is thorough. 
 In order for the system to be considered a success or a creative system, it has to perform well in the Testing stage of the SPECS evaluation. I will also be evaluating other story-telling systems in my report and comparing my approach to other systems.
-
-
-References: 
-[1] CC_WK16_Lecture1, Page 6 – Markov processes
-[2] Bertsekas, D. (2017). Introduction to Probability. London: Facts101.
-[3] W15_1+2evaluation_of_creativity, Page 11 –Evaluation of creative systems: A review of the situation in 2010.
